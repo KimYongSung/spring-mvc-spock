@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="console_root" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d %5p %m%n" />
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="console_root" />
+        </Root>
+    </Loggers>
+</Configuration>
