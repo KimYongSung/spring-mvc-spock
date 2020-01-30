@@ -116,7 +116,7 @@ spring mvc 는 spring boot 과 차이점은 test 설정관련 어노테이션의
 
 |구분 |spring boot            | spring mvc  |
 |---| --------------------- | ----------- |
-|controller |@SpringBootTest  @AutoConfigureMockMvc        | @ContextConfiguration  @WebAppConfiguration |
+|controller |@SpringBootTest  @AutoConfigureMockMvc 또는 @MockMvcTest  | @ContextConfiguration  @WebAppConfiguration |
 |service | @SpringBootTest | @ContextConfiguration  @WebAppConfiguration |
 |repository | @SpringBootTest | @ContextConfiguration  @WebAppConfiguration |
 
