@@ -1,7 +1,6 @@
 package com.kys.example.service
 
 import com.kys.example.common.constants.ErrorCode
-import com.kys.example.common.result.DataResponse
 import com.kys.example.common.result.Response
 import com.kys.example.model.Person
 import com.kys.example.model.PersonAddRequest
