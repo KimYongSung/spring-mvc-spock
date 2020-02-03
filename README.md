@@ -120,7 +120,7 @@ spring mvc 는 spring boot 과 차이점은 test 설정관련 어노테이션의
 |service | @SpringBootTest | @ContextConfiguration  @WebAppConfiguration |
 |repository | @SpringBootTest | @ContextConfiguration  @WebAppConfiguration |
 
-> 내부 소스를 확인해본건 아니지만.. spock은 spring에서 사용시 servletContext를 필수로 요구하였습니다. @WebAppConfiguration 은 필수적으로 설정이 필요합니다.
+> 내부 소스를 확인해본건 아니지만.. spock에서 spring 사용시 ServletContext 를 필수로 요구하였습니다. @WebAppConfiguration 설정이 필요합니다.
 
 #### 2.1.1 spring mvc
 ```groovy
@@ -194,8 +194,10 @@ Mock, Stub, Spy 의 차이는 [해당 링크](https://brunch.co.kr/@tilltue/55) 
 
 Controller 테스트 코드는 요청은 두가지 장점이 있습니다.
 
-첫번째, endpoint 별로 요청과 응답 파라미터의 유효성 검사를 자동화 할 수 있다. 일반적으로 운영환경에서 로그나 응답값을 눈으로 보면서 요청과 응답 파라미터 검증을 진행하는것은 상당히 비효율 적입니다. 
-두번째, spring이 controller 요청 전후로 지원하는 기능들의 테스트가 가능합니다.
+* endpoint 별로 요청과 응답 파라미터의 유효성 검사를 자동화 할 수 있다.
+  * 일반적으로 운영환경에서 로그나 응답값을 눈으로 보면서 요청과 응답 파라미터 검증을 진행하는것은 상당히 비효율 적입니다. 
+* controller 요청 전후로 지원하는 Spring 기능들의 테스트가 가능합니다.
+* [spring-rest-docs](http://woowabros.github.io/experience/2018/12/28/spring-rest-docs.html)을 사용하여 문서의 자동화가 가능합니다.
 
 아래 코드 기준으로 테스트코드를 작성해보겠습니다. 
 
@@ -481,7 +483,7 @@ def "사용자 등록 테스트"(){
 
 일반적으로 개발용 데이터베이스가 별도로 존재하먀 해당 데이터베이스에 모든 개발자가 접속하여 개발 및 테스트를 진행합니다. 여기서 문제가 누군가 테스트 데이터를 변경시킬 경우 테스트 매번 데이터를 다시 설정해야 합니다.
 
-이때,  h2와 같이 EmbeddedDatabase를 사용하거나 DBUnit 같은 테스트 프레임워크를 사용하는 경우 아래와 같은 경우 ``한번 작성된 테스트 코드로 개인이 아닌 팀 단위로 로컬에서 테스트코드 실행이 가능``합니다.
+이때,  h2와 같이 EmbeddedDatabase를 사용하거나 DBUnit 같은 테스트 프레임워크를 사용하는 경우 ``한번 작성된 테스트 코드로 개인이 아닌 팀 단위로 로컬에서 테스트코드 실행이 가능``합니다.
 
 샘플 프로젝트는 h2를 사용하여 테스트 코드를 작성하였습니다.
 
