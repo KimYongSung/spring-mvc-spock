@@ -1,6 +1,7 @@
 package com.kys.example.service;
 
 import com.kys.example.common.result.DataResponse;
+import com.kys.example.common.result.Response;
 import com.kys.example.model.Person;
 import com.kys.example.model.PersonAddRequest;
 import com.kys.example.model.PersonDTO;
@@ -26,7 +27,7 @@ public class SamplePersonService implements PersonService{
      * @return
      */
     @Override
-    public DataResponse<Long> addPerson(PersonAddRequest request){
+    public Response addPerson(PersonAddRequest request){
 
         Person person = personMapper.findByName(request.getName());
 
@@ -47,7 +48,7 @@ public class SamplePersonService implements PersonService{
      * @return
      */
     @Override
-    public DataResponse<PersonDTO> findPersonByName(String name){
+    public Response findPersonByName(String name){
 
         Person person = personMapper.findByName(name);
 

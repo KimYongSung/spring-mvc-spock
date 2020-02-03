@@ -19,7 +19,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class GlobalRestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = Exception.class)
-    public ResponseEntity<Object> handler(Exception e, WebRequest request){
+    public ResponseEntity<?> handler(Exception e, WebRequest request){
         return handleExceptionInternal(e, Response.systemError(), null, HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
 
