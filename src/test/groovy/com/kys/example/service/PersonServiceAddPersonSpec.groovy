@@ -2,6 +2,7 @@ package com.kys.example.service
 
 import com.kys.example.common.constants.ErrorCode
 import com.kys.example.common.result.DataResponse
+import com.kys.example.common.result.Response
 import com.kys.example.model.Person
 import com.kys.example.model.PersonAddRequest
 import spock.lang.Narrative
@@ -23,7 +24,7 @@ class PersonServiceAddPersonSpec extends PersonServiceConfig{
         personMapper.findByName(name) >> new Person(name, address, age)
 
         when: "사용자 등록 요청"
-        DataResponse<Long> response = personService.addPerson(request);
+        personService.addPerson(request);
 
         then: "예외 발생 검증"
         def ex = thrown(exception)
@@ -40,7 +41,7 @@ class PersonServiceAddPersonSpec extends PersonServiceConfig{
         personMapper.findByName(name) >> null
 
         when: "사용자 등록 요청"
-        DataResponse<Long> response = personService.addPerson(request);
+        Response response = personService.addPerson(request);
 
         then: "처리 결과 검증"
         Objects.nonNull(response)
